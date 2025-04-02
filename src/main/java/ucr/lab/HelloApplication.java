@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         String css = Objects.requireNonNull(HelloApplication.class.getResource("stylesheet.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Laboratory 1");
+        stage.setTitle("Laboratory 4");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
