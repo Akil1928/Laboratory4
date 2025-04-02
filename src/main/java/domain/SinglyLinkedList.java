@@ -10,7 +10,15 @@ private Node firts;//Apuntador al inicio de la lista
 
     @Override
     public int size() throws ListException {
-        return 0;
+        if(isEmpty())
+            throw  new ListException("Singly Linked List is emply");
+        int counter = 0;
+        Node aux = firts;//Mueve aux a nodo siguiente
+        while(aux.next!= null){
+            counter ++;
+            aux = aux.next;
+        }
+        return counter;
     }
 
     @Override
@@ -30,7 +38,17 @@ this.firts = null;
 
     @Override
     public void add(Object element) {
+Node newNode = new Node(element);
+if(isEmpty())
+    firts = newNode;
+else{
+    Node aux = firts;//Mueve aux a nodo siguiente
+    while(aux.next!= null){
 
+    }
+    //Sale del while cuando aux esta en el ultimo node
+    aux.next = newNode;
+}
     }
 
     @Override
@@ -45,7 +63,7 @@ Node newNode = new Node(element);
 
     @Override
     public void addLast(Object element) {
-
+add(element);
     }
 
     @Override

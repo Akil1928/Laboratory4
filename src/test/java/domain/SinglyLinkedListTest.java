@@ -15,6 +15,10 @@ class SinglyLinkedListTest {
         list.addFirst(30);
         list.addFirst(50);
         list.addFirst(40);
+        list.add(70);
+        list.addFirst(5);
         System.out.println(list);
+        System.out.println("List size: "+list.size());
+
     }
 }
