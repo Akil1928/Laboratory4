@@ -80,6 +80,24 @@ add(element);
 
     @Override
     public void remove(Object element) throws ListException {
+        if(isEmpty())
+            throw  new ListException("Singly Linked List is emply");
+        //Caso 1
+        if(util.Utility.compare(first.data, element) == 0)
+            first = first.next;
+        //caso 2 el eleento esta al medio o al final
+        else{
+            Node prev = first;// Nodo anterior
+            Node aux = first.next;//Nodo siguiente
+            while(aux!= null && !(util.Utility.compare(aux.data, element)== 0)){
+                prev = aux;
+                aux = aux.next;
+            }
+            //Se sale cuando alcanza nulo o cuando encuentra el elemento
+            if(aux != null && util.Utility.compare(aux.data, element)== 0)
+                //Debo desenlazar el nodo
+                prev.next = aux.next;
+        }
 
     }
 
@@ -149,7 +167,7 @@ add(element);
         String result = "Singly Linked List Content \n";
         Node aux = first;//Aux para moverme en la lista
         while(aux!=null){
-            result+=aux.data+ " ";
+            result+=aux.data+ " \n";
             aux =aux.next;//Mueve al siguiente nodo
         }
         return result;
