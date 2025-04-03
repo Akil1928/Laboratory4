@@ -16,9 +16,33 @@ class SinglyLinkedListTest {
         list.addFirst(50);
         list.addFirst(40);
         list.add(70);
-        list.addFirst(5);
+        list.add(5);
         System.out.println(list);
-        System.out.println("List size: "+list.size());
+        try {
+            System.out.println("List size: "+list.size());
+            System.out.println("Removed first item "+list.removeFirst());
+            System.out.println("List size: "+list.size());
+            System.out.println(list);
+            System.out.println("Removed first item "+list.removeFirst());
+            System.out.println("List size: "+list.size());
+            System.out.println(list);
+            //for(int i = 0; i< 6 ; i++){
+            //    list.removeFirst();
+           // }
+            for (int i = 0; i < 50; i++) {
+                list.add(util.Utility.random(50));
+
+
+            }
+            System.out.println(list);
+            for(int i = 0; i< 10 ; i++){
+                int value = util.Utility.random(50);
+                System.out.println(list.contains(value) ? "The element [ "+ value+ "] exist in the list. index: "+ list.indexOf(value) : "The element dont [ "+ value+ "] exist in the list");
+            }
+            System.out.println(list);
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

@@ -1,11 +1,11 @@
 package domain;
 
 public class SinglyLinkedList implements List{
-private Node firts;//Apuntador al inicio de la lista
+private Node first;//Apuntador al inicio de la lista
 
     //Contructor
     public SinglyLinkedList(){
-        this.firts=null;
+        this.first =null;
     }
 
     @Override
@@ -13,7 +13,7 @@ private Node firts;//Apuntador al inicio de la lista
         if(isEmpty())
             throw  new ListException("Singly Linked List is emply");
         int counter = 0;
-        Node aux = firts;//Mueve aux a nodo siguiente
+        Node aux = first;//Mueve aux a nodo siguiente
         while(aux.next!= null){
             counter ++;
             aux = aux.next;
@@ -23,26 +23,33 @@ private Node firts;//Apuntador al inicio de la lista
 
     @Override
     public void clear() {
-this.firts = null;
+this.first = null;
     }
 
     @Override
     public boolean isEmpty() {
-        return firts == null;
+        return first == null;
     }
 
     @Override
     public boolean contains(Object element) throws ListException {
-        return false;
+        if(isEmpty())
+            throw  new ListException("Singly Linked List is emply");
+Node aux= first;
+while(aux!= null){
+    if(util.Utility.compare(aux.data, element) == 0) return true;//Ya lo encontro
+    aux = aux.next;//Mover aux al siguiente node
+}
+        return false;//Singnifica que no encontro el elemento
     }
 
     @Override
     public void add(Object element) {
 Node newNode = new Node(element);
 if(isEmpty())
-    firts = newNode;
+    first = newNode;
 else{
-    Node aux = firts;//Mueve aux a nodo siguiente
+    Node aux = first;//Mueve aux a nodo siguiente
     while(aux.next!= null){
 
     }
@@ -55,10 +62,10 @@ else{
     public void addFirst(Object element) {
 Node newNode = new Node(element);
         if(isEmpty())
-            firts = newNode;
+            first = newNode;
         else
-            newNode.next = firts;
-        firts = newNode;
+            newNode.next = first;
+        first = newNode;
     }
 
     @Override
@@ -78,7 +85,11 @@ add(element);
 
     @Override
     public Object removeFirst() throws ListException {
-        return null;
+        if(isEmpty())
+            throw  new ListException("Singly Linked List is emply");
+        Object value = first.data;
+        first = first.next;
+        return value;
     }
 
     @Override
@@ -93,7 +104,16 @@ add(element);
 
     @Override
     public int indexOf(Object element) throws ListException {
-        return 0;
+        if(isEmpty())
+            throw  new ListException("Singly Linked List is emply");
+        Node aux = first;
+        int index = 1;
+        while(aux!=null){
+            if(util.Utility.compare(aux.data, element) == 0)return  index;
+            index ++;
+            aux = aux.next;
+        }
+        return -1;
     }
 
     @Override
@@ -123,8 +143,9 @@ add(element);
 
     @Override
     public String toString() {
+        if(isEmpty()) return "Singly Linked List is emply";
         String result = "Singly Linked List Content \n";
-        Node aux = firts;//Aux para moverme en la lista
+        Node aux = first;//Aux para moverme en la lista
         while(aux!=null){
             result+=aux.data+ " ";
             aux =aux.next;//Mueve al siguiente nodo
