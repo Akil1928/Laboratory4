@@ -51,7 +51,7 @@ if(isEmpty())
 else{
     Node aux = first;//Mueve aux a nodo siguiente
     while(aux.next!= null){
-
+aux = aux.next;
     }
     //Sale del while cuando aux esta en el ultimo node
     aux.next = newNode;
@@ -118,7 +118,9 @@ add(element);
 
     @Override
     public Object getFirst() throws ListException {
-        return null;
+        if(isEmpty())
+            throw  new ListException("Singly Linked List is emply");
+        return first.data;
     }
 
     @Override
