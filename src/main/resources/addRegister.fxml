@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddStudent">
+   <children>
+      <Pane prefHeight="62.0" prefWidth="762.0" style="-fx-background-color: #fe6962;">
+         <children>
+            <Label layoutX="265.0" layoutY="8.0" text="Add Register">
+               <font>
+                  <Font name="Arial" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="14.0" layoutY="88.0" text="Register Id:">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textField1" layoutX="143.0" layoutY="80.0" onAction="#textFieldOnAction" prefHeight="42.0" prefWidth="47.0">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="10.0" layoutY="142.0" text="Date">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="10.0" layoutY="229.0" text="Select at Course">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="187.0" text="Select at Student">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Label>
+      <Pane layoutY="337.0" prefHeight="62.0" prefWidth="762.0" style="-fx-background-color: #fe6962;">
+         <children>
+            <Button layoutX="57.0" layoutY="19.0" mnemonicParsing="false" onAction="#addOnAction" text="Add" />
+            <Button layoutX="310.0" layoutY="19.0" mnemonicParsing="false" onAction="#cleanOnAction" text="Clean" />
+            <Button layoutX="576.0" layoutY="19.0" mnemonicParsing="false" onAction="#closeOnAction" text="Close" />
+         </children>
+      </Pane>
+      <ComboBox layoutX="199.0" layoutY="187.0" onAction="#selectStudentOn" prefWidth="150.0" />
+      <ComboBox layoutX="199.0" layoutY="229.0" prefWidth="150.0" />
+      <DatePicker layoutX="64.0" layoutY="143.0" onAction="#dateOnActio" />
+   </children>
+</AnchorPane>
