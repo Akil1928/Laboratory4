@@ -28,6 +28,35 @@ class SinglyLinkedListTest {
         } catch (ListException e) {
             throw new RuntimeException(e);
         }
+        try {
+            System.out.println("Traversing the list using getNode(i):");
+            for (int i = 1; i <= list.size(); i++) {
+                System.out.println("The element in position " + i + " is: " +
+                        list.getNode(i).data);
+            }
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            Student student1 = new Student("8", "Carlos", 25, "San Carlos");
+            Student student2 = new Student("100");
+            System.out.println("The student Carlos with Id=8 is in position: " +
+                    list.indexOf(student1));
+            System.out.println("The student Carlos with Id=100 is in position: " +
+                    list.indexOf(student2));
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            list.remove(new Student("1"));
+            list.remove(new Student("3"));
+            list.remove(new Student("5"));
+            System.out.println("Students with Id=1, 3, 5 have been removed");
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(list);
 
     }
     void test2() {
@@ -69,6 +98,7 @@ class SinglyLinkedListTest {
 
                 }
             }
+
 
             System.out.println(list);
         } catch (ListException e) {

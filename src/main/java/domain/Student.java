@@ -31,17 +31,17 @@ public class Student implements Person{
 
     @Override
     public String getName() {
-        return "";
+        return this.name;
     }
 
     @Override
     public int getAge() {
-        return 0;
+        return this.age;
     }
 
     @Override
     public String getAddress() {
-        return "";
+        return this.address;
     }
 
     public String getId() {

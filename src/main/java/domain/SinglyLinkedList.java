@@ -117,7 +117,23 @@ add(element);
 
     @Override
     public void sort() throws ListException {
+        if(isEmpty())
+            throw new ListException("Singly Linked List is empty");
 
+
+        for(int i = 1; i <= size(); i++){
+            for(int j = 1; j <= size()-i; j++){
+                Student student1 = (Student)getNode(j).data;
+                Student student2 = (Student)getNode(j+1).data;
+
+                if(student1.getName().compareTo(student2.getName()) > 0){
+
+                    Object temp = getNode(j).data;
+                    getNode(j).data = getNode(j+1).data;
+                    getNode(j+1).data = temp;
+                }
+            }
+        }
     }
 
     @Override
@@ -158,6 +174,17 @@ add(element);
 
     @Override
     public Node getNode(int index) throws ListException {
+        if(isEmpty())
+            throw new ListException("Singly Linked List is empty");
+        Node aux = first;
+        int i = 1; //position of the first node
+        while(aux != null){
+            if(util.Utility.compare(i, index) == 0){
+                return aux;
+            }
+            i++;
+            aux = aux.next; //move to next node
+        }
         return null;
     }
 
