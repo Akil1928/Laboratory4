@@ -47,7 +47,14 @@ class SinglyLinkedListTest {
         } catch (ListException e) {
             throw new RuntimeException(e);
         }
-
+        System.out.println("\n********** Ordenando la lista por nombre: **************\n");
+        try {
+            list.sort();
+            System.out.println("Lista ordenada por nombre:");
+            System.out.println(list);
+        } catch (ListException e) {
+            System.out.println("Error al ordenar la lista: " + e.getMessage());
+        }
         try {
             list.remove(new Student("1"));
             list.remove(new Student("3"));
