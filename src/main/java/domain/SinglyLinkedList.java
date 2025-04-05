@@ -187,6 +187,24 @@ add(element);
         }
         return null;
     }
+    public int countNames(String name) throws ListException {
+        if (isEmpty()) {
+            throw new ListException("La lista está vacía");
+        }
+
+        int count = 0;
+        Node current = first;
+
+        while (current != null) {
+            Student student = (Student) current.data;
+            if (student.getName().equalsIgnoreCase(name)) {
+                count++;
+            }
+            current = current.next;
+        }
+
+        return count;
+    }
 
     @Override
     public String toString() {
