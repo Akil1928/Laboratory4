@@ -11,9 +11,20 @@ class SinglyLinkedListTest {
         SinglyLinkedList list = new SinglyLinkedList();
         list.add(new Student("1", "Maria", 20, "Cartago"));
         list.add(new Student("2", "Carlos", 22, "San Jose"));
+        list.add(new Student("3", "Laura", 20, "Paraiso"));
+        list.add(new Student("4", "Paula", 18, "Turrialba"));
+        list.add(new Student("5", "Carlos", 21, "Limon"));
+        list.add(new Student("6", "Fabiana", 19, "Paraiso"));
+        list.add(new Student("7", "Maria", 23, "Guanacaste"));
+        list.add(new Student("8", "Carlos", 25, "San Carlos"));
+        list.add(new Student("9", "Laura", 20, "Turrialba"));
+        list.add(new Student("10", "Pedro", 24, "Heredia"));
         System.out.println(list);
         try {
-            System.out.println(list.contains(new Student("2")) ? "Exists in the list" : "Does not exists");
+            System.out.println(list.contains(new Student("20")) ? "Exists in the list" : "Does not exists");
+            System.out.println(list.contains(new Student("4")) ? "Exists in the list" : "Does not exists");
+            System.out.println(list.contains(new Student("5")) ? "Exists in the list" : "Does not exists");
+            System.out.println(list.contains(new Student("8")) ? "Exists in the list" : "Does not exists");
         } catch (ListException e) {
             throw new RuntimeException(e);
         }

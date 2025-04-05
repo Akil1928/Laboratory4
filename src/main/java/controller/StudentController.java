@@ -76,12 +76,12 @@ public class StudentController
 
     @javafx.fxml.FXML
     public void addOnAction(ActionEvent actionEvent) {
-        util.FXUtility.loadPage("ucr.lab.HelloApplication", "addStudent.fxml", bp);
+        util.FXUtility.loadPage("ucr.lab.HelloApplication", "/addStudent.fxml", bp);
     }
 
     @javafx.fxml.FXML
     public void addFirstOnAction(ActionEvent actionEvent) {
-        util.FXUtility.loadPage("ucr.lab.HelloApplication", "addFirstStudent.fxml", bp);
+        util.FXUtility.loadPage("ucr.lab.HelloApplication", "/addFirstStudent.fxml", bp);
     }
 
     @javafx.fxml.FXML
