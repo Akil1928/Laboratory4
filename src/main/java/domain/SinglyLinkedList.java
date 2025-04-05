@@ -205,7 +205,23 @@ add(element);
 
         return count;
     }
+    public boolean findNames(String name) throws ListException {
+        if (isEmpty()) {
+            throw new ListException("La lista está vacía");
+        }
 
+        Node current = first;
+
+        while (current != null) {
+            Student student = (Student) current.data;
+            if (student.getName().equalsIgnoreCase(name)) {
+                return true;
+            }
+            current = current.next;
+        }
+
+        return false;
+    }
     @Override
     public String toString() {
         if(isEmpty()) return "Singly Linked List is emply";

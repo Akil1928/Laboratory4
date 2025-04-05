@@ -47,13 +47,13 @@ class SinglyLinkedListTest {
         } catch (ListException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("\n********** Ordenando la lista por nombre: **************\n");
+        System.out.println("\n");
         try {
             list.sort();
             System.out.println("Lista ordenada por nombre:");
             System.out.println(list);
         } catch (ListException e) {
-            System.out.println("Error al ordenar la lista: " + e.getMessage());
+            throw new RuntimeException(e);
         }
         try {
             list.remove(new Student("1"));
@@ -63,7 +63,16 @@ class SinglyLinkedListTest {
         } catch (ListException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(list);
+        try {
+            System.out.println("¿Existe una estudiante con el nombre Karla? " + list.findNames("Karla"));
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            System.out.println("¿Existe una estudiante con el nombre Fabiana? " + list.findNames("Fabiana"));
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
 
     }
     void test2() {

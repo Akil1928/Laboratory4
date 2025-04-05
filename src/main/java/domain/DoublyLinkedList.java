@@ -42,6 +42,19 @@ public class DoublyLinkedList implements List {
         }
         return false; //significa que no encontro el elemento
     }
+    public boolean containsById(String id) throws ListException {
+        if(isEmpty()) throw new ListException("List is empty");
+
+        Node aux = first;
+        while(aux != null) {
+            if(aux.data instanceof Course) {
+                Course c = (Course) aux.data;
+                if(c.getId().equals(id)) return true;
+            }
+            aux = aux.next;
+        }
+        return false;
+    }
 
     @Override
     public void add(Object element) {
@@ -131,7 +144,23 @@ public class DoublyLinkedList implements List {
 
     @Override
     public void sort() throws ListException {
+        if(isEmpty())
+            throw new ListException("Doubly Linked List is empty");
 
+
+        for(int i = 1; i <= size(); i++){
+            for(int j = 1; j <= size()-i; j++){
+                Course course1 = (Course) getNode(j).data;
+                Course course2 = (Course) getNode(j+1).data;
+
+                if(course1.getName().compareTo(course2.getName()) > 0){
+
+                    Object temp = getNode(j).data;
+                    getNode(j).data = getNode(j+1).data;
+                    getNode(j+1).data = temp;
+                }
+            }
+        }
     }
 
     @Override

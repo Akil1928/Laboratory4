@@ -36,6 +36,7 @@ public class Course {
         this.credits = credits;
     }
 
+
     @Override
     public String toString() {
         return "Course{" +
