@@ -1,6 +1,8 @@
 package domain;
 
-public class Student implements Person{
+import java.util.Objects;
+
+public class Student implements Person, Comparable<Student> {
     private String id;
     private String name;
     private int age;
@@ -18,7 +20,7 @@ public class Student implements Person{
     }
 
     private double studyHours(){
-        return age /2;
+        return age / 2;
     }
     @Override
     public boolean equals(Person other) {
@@ -31,7 +33,7 @@ public class Student implements Person{
 
     @Override
     public String getName() {
-        return "";
+        return name;
     }
 
     @Override
@@ -50,6 +52,23 @@ public class Student implements Person{
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(id, student.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    public int compareTo(Student other) {
+        return this.name.compareTo(other.name);
     }
 
     @Override
